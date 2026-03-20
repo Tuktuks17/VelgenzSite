@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velgenz — Velocity in Gen Z</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafaf8;
+            --black: #0a0a0a;
+            --blue: #1a1aff;
+            --gray: #666666;
+            --light-gray: #f0f0f0;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'DM Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--black);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: var(--font-serif);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            background: rgba(250, 250, 248, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .slogan {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+            opacity: 0.6;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .cta-nav {
+            background: var(--black);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 100px;
+            transition: transform 0.2s !important;
+        }
+
+        .cta-nav:hover {
+            transform: scale(1.05);
+            opacity: 1 !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 92px);
+            line-height: 1.1;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            max-width: 900px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--blue);
+        }
+
+        .hero p {
+            font-size: clamp(18px, 2vw, 22px);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .btn-main {
+            background: var(--black);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-main:hover {
+            background: var(--blue);
+        }
+
+        .btn-link {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.2s;
+        }
+
+        .btn-link:hover {
+            gap: 12px;
+        }
+
+        .hero-stats {
+            margin-top: 80px;
+            display: flex;
+            gap: 4rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 40px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-val {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.5;
+        }
+
+        /* Black Block */
+        .black-block {
+            background: var(--black);
+            color: white;
+            padding: 120px 0;
+        }
+
+        .black-block .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .black-block h2 {
+            font-size: clamp(32px, 4vw, 56px);
+            line-height: 1.2;
+            font-style: italic;
+            color: #888;
+        }
+
+        .black-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .black-card {
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .black-card:hover {
+            border-color: var(--blue);
+        }
+
+        .black-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .black-card p {
+            opacity: 0.6;
+            font-size: 15px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .service-item {
+            background: var(--bg);
+            padding: 60px 40px;
+            transition: background 0.3s;
+        }
+
+        .service-item:hover {
+            background: var(--light-gray);
+        }
+
+        .service-num {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-item h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .service-item p {
+            font-size: 15px;
+            opacity: 0.7;
+        }
+
+        /* Approach Section */
+        .approach {
+            background: var(--light-gray);
+            padding: 120px 0;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .approach-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .approach-num {
+            font-family: var(--font-serif);
+            font-size: 64px;
+            color: #ccc;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .approach-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: var(--font-sans);
+            font-weight: 700;
+        }
+
+        .approach-item p {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 150px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: clamp(40px, 6vw, 80px);
+            margin-bottom: 20px;
+        }
+
+        .cta h2 em {
+            font-style: italic;
+            color: var(--blue);
+        }
+
+        .cta p {
+            font-size: 20px;
+            opacity: 0.6;
+            margin-bottom: 50px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            padding: 20px 30px;
+            border-radius: 100px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: white;
+            font-family: var(--font-sans);
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="email"]:focus {
+            border-color: var(--blue);
+        }
+
+        .btn-submit {
+            background: var(--black);
+            color: white;
+            border: none;
+            padding: 0 40px;
+            border-radius: 100px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: var(--blue);
+        }
+
+        #confirmation {
+            margin-top: 20px;
+            color: var(--blue);
+            font-weight: 600;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: white;
+            padding: 60px 0;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            font-size: 14px;
+            opacity: 0.4;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .black-block .container {
+                grid-template-columns: 1fr;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 48px;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+            footer .container {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            form {
+                flex-direction: column;
+            }
+            .btn-submit {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="container">
+            <a href="#" class="logo-container">
+                <span class="logo">Velgenz</span>
+                <span class="slogan">Velocity in Gen Z</span>
+            </a>
+            <div class="nav-links">
+                <a href="#servicos">Serviços</a>
+                <a href="#abordagem">Abordagem</a>
+                <a href="#contacto" class="cta-nav">Falar connosco</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <span class="eyebrow">Consultoria de Gestão com IA</span>
+            <h1>Não recomendamos.<br><em>Implementamos.</em></h1>
+            <p>Diagnóstico organizacional, estratégia de IA e execução real. Resultados mensuráveis, não apresentações.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-val">Europeu</span>
+                    <span class="stat-label">Mercado principal</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">Tier 1</span>
+                    <span class="stat-label">Metodologia de consultoria</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">IA + Estratégia</span>
+                    <span class="stat-label">Integração nativa</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="black-block">
+        <div class="container">
+            <h2>Onde outros recomendam, nós executamos.</h2>
+            <div class="black-cards">
+                <div class="black-card">
+                    <h3>Diagnóstico</h3>
+                    <p>Análise profunda de processos e identificação de gargalos operacionais prontos para automação.</p>
+                </div>
+                <div class="black-card">
+                    <h3>Implementação</h3>
+                    <p>Desenvolvimento e integração de soluções de IA personalizadas no fluxo de trabalho da sua empresa.</p>
+                </div>
+                <div class="black-card">
+                    <h3>Continuidade</h3>
+                    <p>Suporte contínuo e evolução dos modelos para garantir que a tecnologia acompanhe o crescimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicos">
+        <div class="container">
+            <span class="eyebrow" style="margin-bottom: 40px; display: block;">Nossos Serviços</span>
+            <div class="services-grid">
+                <div class="service-item">
+                    <span class="service-num">01</span>
+                    <h3>Diagnóstico Organizacional</h3>
+                    <p>Mapeamento completo da estrutura e processos para identificar oportunidades de eficiência.</p>
+                </div>
+                <div class="service-item">
+                    <span class="service-num">02</span>
+                    <h3>Roadmap de IA</h3>
+                    <p>Planejamento estratégico de longo prazo para a integração de inteligência artificial no negócio.</p>
+                </div>
+                <div class="service-item">
+                    <span class="service-num">03</span>
+                    <h3>Integração de Sistemas</h3>
+                    <p>Conectamos suas ferramentas atuais com as mais avançadas tecnologias de IA do mercado.</p>
+                </div>
+                <div class="service-item">
+                    <span class="service-num">04</span>
+                    <h3>Gestão da Mudança</h3>
+                    <p>Acompanhamento das equipas na transição para novos processos otimizados por tecnologia.</p>
+                </div>
+                <div class="service-item">
+                    <span class="service-num">05</span>
+                    <h3>Automação de Processos</h3>
+                    <p>Substituição de tarefas repetitivas por fluxos inteligentes e autónomos.</p>
+                </div>
+                <div class="service-item">
+                    <span class="service-num">06</span>
+                    <h3>Programa de Parceria</h3>
+                    <p>Consultoria contínua para manter a sua empresa na vanguarda da inovação tecnológica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="approach" id="abordagem">
+        <div class="container">
+            <span class="eyebrow">Nossa Abordagem</span>
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <span class="approach-num">01</span>
+                    <h3>Diagnóstico</h3>
+                    <p>Entendemos o seu negócio e identificamos os pontos de maior impacto.</p>
+                </div>
+                <div class="approach-item">
+                    <span class="approach-num">02</span>
+                    <h3>Estratégia</h3>
+                    <p>Criamos um plano de ação detalhado e focado em resultados reais.</p>
+                </div>
+                <div class="approach-item">
+                    <span class="approach-num">03</span>
+                    <h3>Execução</h3>
+                    <p>Colocamos as mãos na massa e implementamos as soluções acordadas.</p>
+                </div>
+                <div class="approach-item">
+                    <span class="approach-num">04</span>
+                    <h3>Estabilização</h3>
+                    <p>Garantimos que tudo funciona perfeitamente e as equipas estão capacitadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contacto">
+        <div class="container">
+            <h2>Pronto para <em>começar?</em></h2>
+            <p>Deixe o seu email. Entramos em contacto ainda hoje.</p>
+            <div class="form-container">
+                <form id="leadForm">
+                    <input type="email" placeholder="Seu email profissional" required id="emailInput">
+                    <button type="submit" class="btn-submit">Enviar</button>
+                </form>
+                <div id="confirmation">✓ Recebido! Falamos em breve.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="#" class="logo-container">
+                <span class="logo" style="color: white;">Velgenz</span>
+            </a>
+            <div class="footer-links">
+                <a href="#servicos">Serviços</a>
+                <a href="#abordagem">Abordagem</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <span class="copyright">© 2026 Velgenz</span>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.style.height = '70px';
+                nav.style.background = 'rgba(250, 250, 248, 0.95)';
+            } else {
+                nav.style.height = '80px';
+                nav.style.background = 'rgba(250, 250, 248, 0.8)';
+            }
+        });
+
+        // Form handling
+        const form = document.getElementById('leadForm');
+        const confirmation = document.getElementById('confirmation');
+        const emailInput = document.getElementById('emailInput');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simple validation
+            if (emailInput.value) {
+                form.style.display = 'none';
+                confirmation.style.display = 'block';
+                
+                // Reset form after some time (optional)
+                /*
+                setTimeout(() => {
+                    form.reset();
+                    form.style.display = 'flex';
+                    confirmation.style.display = 'none';
+                }, 5000);
+                */
+            }
+        });
+
+        // Smooth scroll for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
